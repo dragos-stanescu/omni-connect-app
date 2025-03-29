@@ -5,9 +5,12 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  StatusBar,
+  Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { useAuth } from "../../hooks/useAuth";
+
+import { useAuth } from "@/hooks/useAuth";
 
 const categories = [
   {
@@ -100,6 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 16,
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     backgroundColor: "#fff",
   },
   title: {

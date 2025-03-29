@@ -37,7 +37,17 @@ export default function RootLayout() {
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
+          <Stack.Screen name="auth/login" options={{ headerShown: false }} />
+          <Stack.Screen name="jobs/index" options={{ headerShown: false }} />
+          <Stack.Screen name="courses/index" options={{ headerShown: false }} />
+          <Stack.Screen name="tourism/index" options={{ headerShown: false }} />
+          <Stack.Screen name="auto/index" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="accommodation/index"
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="dating/index" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" options={{ headerShown: false }} />
         </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>
