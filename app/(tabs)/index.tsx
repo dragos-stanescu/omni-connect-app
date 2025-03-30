@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StatusBar,
   Platform,
+  Image,
 } from "react-native";
 import { useRouter } from "expo-router";
 
@@ -18,32 +19,43 @@ const categories = [
     title: "Job Opportunities",
     route: "/jobs",
     lastUpdate: "2 days ago",
+    image: require("../../assets/images/jobs.webp"),
   },
   {
     id: 2,
     title: "Courses",
     route: "/courses",
     lastUpdate: "Updated today",
+    image: require("../../assets/images/courses.jpg"),
   },
   {
     id: 3,
     title: "Tourist Attractions",
     route: "/tourism",
     lastUpdate: "2 days ago",
+    image: require("../../assets/images/tourism.jpg"),
   },
   {
     id: 4,
     title: "Auto-Moto Rent",
     route: "/auto",
     lastUpdate: "Yesterday",
+    image: require("../../assets/images/auto.jpg"),
   },
   {
     id: 5,
     title: "Accommodation",
     route: "/accommodation",
     lastUpdate: "Yesterday",
+    image: require("../../assets/images/accommodation.jpg"),
   },
-  { id: 6, title: "Dating", route: "/dating", lastUpdate: "Yesterday" },
+  {
+    id: 6,
+    title: "Dating",
+    route: "/dating",
+    lastUpdate: "Yesterday",
+    image: require("../../assets/images/dating.jpg"),
+  },
 ];
 
 export default function HomeScreen() {
@@ -78,7 +90,11 @@ export default function HomeScreen() {
               onPress={() => navigateToCategory(category.route)}
             >
               <View style={styles.itemContent}>
-                <View style={styles.placeholder} />
+                <Image
+                  source={category.image}
+                  style={styles.categoryImage}
+                  resizeMode="cover"
+                />
                 <Text style={styles.itemTitle}>{category.title}</Text>
                 <Text style={styles.updateText}>{category.lastUpdate}</Text>
               </View>
@@ -132,24 +148,29 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   gridItem: {
-    width: "33.33%",
+    width: "50%",
     padding: 8,
   },
   itemContent: {
     backgroundColor: "#fff",
     borderRadius: 8,
-    padding: 12,
+    padding: 16,
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  placeholder: {
-    width: 60,
-    height: 60,
-    backgroundColor: "#ddd",
+  categoryImage: {
+    width: 120,
+    height: 100,
     borderRadius: 8,
-    marginBottom: 8,
+    marginBottom: 12,
   },
   itemTitle: {
-    fontSize: 14,
+    fontSize: 16,
+    fontWeight: "600",
     textAlign: "center",
     marginBottom: 4,
   },
